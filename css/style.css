@@ -1,0 +1,15 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background: url('../images/fodoGame.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+canvas {
+    margin-left: 10rem;
+}
