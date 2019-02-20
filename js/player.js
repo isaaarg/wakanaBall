@@ -4,7 +4,7 @@ function Player(game) {
     this.x = 0
     this.y0 = this.game.canvas.height * 0.8;
     this.y = this.y0;
-    this.posY = 400;
+    this.posY = 490;
     this.color = "white"
     this.w = 150
     this.h = 2
@@ -13,8 +13,8 @@ function Player(game) {
 }
 
 Player.prototype.drawRect = function () {
-    this.game.ctx.fillRect(this.x, this.posY, this.w, this.h) // y = 497
     this.game.ctx.fillStyle = this.color
+    this.game.ctx.fillRect(this.x, this.posY, this.w, this.h) // y = 497
 
 }
 

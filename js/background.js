@@ -1,8 +1,8 @@
-function Background(game) {
+function Background(game, url) {
     this.game = game;
   
     this.img = new Image();
-    this.img.src = 'images/game1.jpg';
+    this.img.src = url
   
     this.x = 0;
     this.y = 0;
@@ -14,4 +14,6 @@ function Background(game) {
     // this.game.ctx.drawImage(this.img, this.x + this.game.canvas.width, this.y, this.game.canvas.width, this.game.canvas.height);
   };
   
- 
+ Background.prototype.newBack = function(url){
+    this.img.src = url 
+ }
