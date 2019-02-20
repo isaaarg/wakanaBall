@@ -13,3 +13,7 @@ body {
 canvas {
     margin-left: 10rem;
 }
+
+.game-over {
+    font-family: Exposit-Bold;
+}

@@ -11,8 +11,7 @@ function Game(){
         w: undefined,
         h: undefined
     }
-        this.audio = new Audio('music/nivel1.mp3');
-        this.audio.play()
+    loadedAudios.nivel1.play()
 }
     // INICIALIZACION DEL CANVAS. el init le da valor al canvasDom y ctx
     Game.prototype.init = function(id){
@@ -44,6 +43,7 @@ function Game(){
         this.ctx.clearRect(0,0, this.canvas.w, this.canvas.h)
         this.drawAll()
         this.moveAll()
+        
 
         // ScoreBoard.update("pepe",this.ctx)
         //this.obstacles.drawRect()
@@ -52,7 +52,7 @@ function Game(){
             console.log('colisión!!!')
             this.ball.vy *= -1 //se multiplica por -1 para cambiar de direcc
             this.player.w -=50 //hace que mi linea-player disminuya su ancho acada vez qu ela pelota colisiona con ella
-        }
+        } //cambiarlo a 0 para comprobar q en el tercer nivel me va la img y la musica
 
         if (this.isCollisionWithObstacles()){
             this.ball.vy *= -1 //velocidad con la que mi pelota choca con los demás obstaculos que son mas putas lineas
@@ -65,14 +65,21 @@ function Game(){
             this.player.x = 0
             this.level = 2 //me sube el nivel
             this.createObstacles()
+
+            loadedAudios.nivel2.play()
+            loadedAudios.nivel1.pause()
+
             }else if(this.level == 2){
-            this.background.newBack('images/game6.jpg')
+            this.background.newBack('images/vacawaka.jpg')
             this.player.w = 150
-            this.player.x = 150
+            this.player.x = 0
             this.level = 3
             this.createObstacles()
             this.ball.vy -= 8
             this.ball.vx = 7
+
+            loadedAudios.nivel3.play()
+            loadedAudios.nivel2.pause()
             }
             
         } 
@@ -142,7 +149,10 @@ function Game(){
 
     Game.prototype.gameOver = function(){
         this.stop()
-        this.audio.pause()
+        if(this.level === 1){loadedAudios.nivel1.pause()}
+        else if (this.level === 2){loadedAudios.nivel2.pause()}
+        else if (this.level === 3){loadedAudios.nivel3.pause()}
+        
         document.getElementsByClassName("game-over")[0].style.display = "block"
     }
 
