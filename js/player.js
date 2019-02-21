@@ -9,7 +9,11 @@ function Player(game) {
     this.w = 150
     this.h = 2
     this.vx = 10
-    this._move()
+    this.listener()
+    this.canMove= {
+        left :false,
+        right:false
+    }
 }
 
 Player.prototype.drawRect = function () {
@@ -18,19 +22,40 @@ Player.prototype.drawRect = function () {
 
 }
 
-Player.prototype._move = function () {
+Player.prototype.listener = function () {
     document.onkeydown = function (event) {
         switch (event.keyCode) {
             case 39:
-            if (this.x + this.w + 10 <= this.game.canvas.w) 
-            { this.x += 10
-                console.log("pepe") 
-            }
+            if (this.canMove.left = true)
+            
             break
             case 37:
-            if(this.x >= 0)
-            {this.x -= 10}
+            if(this.canMove.right = true)
             break
         }
     }.bind(this)
+
+    document.onkeyup = function (event) {
+        switch (event.keyCode) {
+            case 39:
+            if (this.canMove.left = false)
+            
+            break
+            case 37:
+            if(this.canMove.right = false)
+            break
+        }
+    }.bind(this)
+
+}
+
+Player.prototype._move = function(){
+    if(this.canMove.left)
+    if (this.x + this.w + 10 <= this.game.canvas.w) 
+    { this.x += 10} 
+
+    if(this.canMove.right)
+    if(this.x >= 0)
+     {this.x -= 10}
+            
 }

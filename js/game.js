@@ -11,7 +11,7 @@ function Game(){
         w: undefined,
         h: undefined
     }
-    loadedAudios.nivel1.play()
+   
 }
     // INICIALIZACION DEL CANVAS. el init le da valor al canvasDom y ctx
     Game.prototype.init = function(id){
@@ -27,7 +27,7 @@ function Game(){
         
         // llamo a la funcion start
         this.start() //ejecuta el juego
-        
+        loadedAudios.nivel1.play()
     }
 
     //dimensiones de mi juego(canvas)
@@ -123,7 +123,7 @@ function Game(){
     //esta funcion mueve todo en mi juego
     Game.prototype.moveAll = function (){
         this.ball.move() //llama a los movimientos de la pelota
-        this.player.drawRect() //llama a que dibuje la rceta
+        this.player._move() //llama a que mueva la rceta
         this.obstacles.forEach(function (obstacle) { obstacle.move()}) //llama al movimiento de  cada uno de mis obstaculos
 
     }
@@ -154,6 +154,10 @@ function Game(){
         else if (this.level === 3){loadedAudios.nivel3.pause()}
         
         document.getElementsByClassName("game-over")[0].style.display = "block"
+        document.getElementsByClassName("game-over")[0].style.position = "absolute"
+        document.getElementsByClassName("game-over")[0].style.marginLeft = "215px"
+
+
     }
 
     //hace que la pelota se cuele por abajo del canvas

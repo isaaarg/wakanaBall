@@ -20,27 +20,54 @@
     <script type="text/javascript" src="js/game.js"></script>
 
     <link rel="stylesheet" href="css/style.css">
+    <style>
+            @import url('https://fonts.googleapis.com/css?family=B612');
+    </style>
 </head>
 <body>
+    <div id="intro">
+        <img src="images/fondoIntro.jpg" alt="">  
+        <!-- aquicambio la imagen  -->
+        
+    </div>
  <!-- 
      genera el canvas
  -->
-    <canvas id="canvasExp"></canvas> 
+    <div class="container" style="position: relative;">
+        <img class="instructions" src="images/instructions.png">
+        <canvas id="canvasExp" width="300" height="500"></canvas>
+    </div>    
+    
+        
 
 
-    <div class="game-over" style="display:none"><H1>GAME OVER!!!</H1></div>
+    <div class="game-over" style="display:none"><H1>GAME OVER</H1></div>
         <!-- <button>BOUNCE NOW</canvas>
 		<button>SPEED UP</canvas>
 		<button>SPEED DOWN</canvas>
         <button>INCREMENT GRAVITY</canvas> -->
             
      <!-- <div class="play"></div>        -->
-    <script>
-        var app = new Game() //ejecuta la funciuon contsructora y se giarda en app
-        console.log(app)
-        app.init('canvasExp')
+            <div class="start"></div>
 
+    
+
+    <script>
+        app = new Game() //ejecuta la funciuon contsructora y se giarda en app
+        console.log(app)
         
+
+        //cuando pulsemos start
+        document.querySelector('.start').onclick = function() {
+            document.querySelector('.instructions').style.display = "none" //ocultamos instructios
+            app.init('canvasExp')
+        } 
+
+        document.addEventListener('keydown',function(event){
+            if(event.keyCode == 32){
+                document.getElementById('intro').style.display = "none"
+            }
+        })
         
 
     </script>
