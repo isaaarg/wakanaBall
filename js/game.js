@@ -156,8 +156,13 @@ function Game(){
         document.getElementsByClassName("game-over")[0].style.display = "block"
         document.getElementsByClassName("game-over")[0].style.position = "absolute"
         document.getElementsByClassName("game-over")[0].style.marginLeft = "215px"
+        document.querySelector('.start').onclick = function() {
+            document.querySelector('.instructions').style.display = "none" //ocultamos instructios
+            app.init('canvasExp')
+            document.getElementsByClassName("game-over")[0].style.display = "none"
+            document.querySelector('.start').onclick = null
 
-
+        }
     }
 
     //hace que la pelota se cuele por abajo del canvas
