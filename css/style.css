@@ -19,7 +19,7 @@ canvas {
     color:white;
 }
 .start{
-    border: 1px solid red;
+    border: 1px;
     width: 300px;
     height: 300px;
     margin-left: 630px;

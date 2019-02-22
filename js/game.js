@@ -149,9 +149,9 @@ function Game(){
 
     Game.prototype.gameOver = function(){
         this.stop()
-        if(this.level === 1){loadedAudios.nivel1.pause()}
-        else if (this.level === 2){loadedAudios.nivel2.pause()}
-        else if (this.level === 3){loadedAudios.nivel3.pause()}
+        loadedAudios.nivel1.pause()
+        loadedAudios.nivel2.pause()
+        loadedAudios.nivel3.pause()
         
         document.getElementsByClassName("game-over")[0].style.display = "block"
         document.getElementsByClassName("game-over")[0].style.position = "absolute"
