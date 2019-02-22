@@ -25,12 +25,12 @@ BallMio.prototype.move = function(){
     this.y += this.vy
     this.vy += this.gravity
 
-    //ahora hay qu ehacer que la pelota no se sala de la pantalla y rebote
+    //ahora hay quehacer que la pelota no se sala de la pantalla y rebote
     if(this.y > this.game.canvas.h + this.radius*3) { //si toca 
         this.game.gameOver() //pierdes!!!!!
     }
 
-    if (this.y + this.vy < 0) { //esto dice que si la pelota va hacua arriba
+    if (this.y + this.vy < 0) { //esto dice que si la pelota va hacia arriba
        this.vy *= -1 //cambia la direccion de y 
     } 
 
